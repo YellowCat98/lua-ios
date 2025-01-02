@@ -139,7 +139,7 @@
 #endif
 #endif
 
-#if !defined(LUA_USE_IOS)
+#if !defined(__APPLE__)
 static int os_execute (lua_State *L) {
   const char *cmd = luaL_optstring(L, 1, NULL);
   int stat;
@@ -409,7 +409,7 @@ static const luaL_Reg syslib[] = {
   {"clock",     os_clock},
   {"date",      os_date},
   {"difftime",  os_difftime},
-  #if !defined(LUA_USE_IOS)
+  #if !defined(__APPLE__)
   {"execute",   os_execute},
   #endif
   {"exit",      os_exit},
